@@ -1,0 +1,502 @@
+object frmSoalUjian: TfrmSoalUjian
+  Left = 266
+  Height = 527
+  Top = 91
+  Width = 803
+  Caption = 'Ujian'
+  ClientHeight = 527
+  ClientWidth = 803
+  Color = 16708842
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.0.14.0'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 423
+    Top = 104
+    Width = 803
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Alignment = taRightJustify
+        Title.Caption = 'IDs'
+        Width = 25
+        FieldName = 'id_soal'
+      end    
+      item
+        Title.Caption = 'IDj'
+        Width = 25
+        FieldName = 'id_jadwal'
+      end    
+      item
+        Title.Caption = 'Tanggal'
+        Width = 70
+        FieldName = 'tanggal'
+      end    
+      item
+        Title.Caption = 'Mata Kuliah'
+        Width = 250
+        FieldName = 'nama_mk'
+      end    
+      item
+        Title.Caption = 'Dosen'
+        Width = 200
+        FieldName = 'nama_dosen'
+      end    
+      item
+        Title.Caption = 'T/P'
+        Width = 70
+        FieldName = 'tp'
+      end    
+      item
+        Title.Caption = 'Kls'
+        Width = 30
+        FieldName = 'kelas'
+      end    
+      item
+        PickList.Strings = (
+          'Open Book'
+          'Close Book'
+          'Take Home'
+          'Open Book No Laptop'
+        )
+        Title.Caption = 'Sifat Ujian'
+        Width = 100
+        FieldName = 'sifat'
+      end>
+    DataSource = Datasource1
+    ReadOnly = True
+    TabOrder = 0
+    OnCellClick = DBGrid1CellClick
+    OnEditingDone = DBGrid1EditingDone
+  end
+  object btnPrintAll: TButton
+    Left = 712
+    Height = 64
+    Top = 32
+    Width = 75
+    Anchors = [akTop, akRight]
+    Caption = 'Print All'
+    OnClick = btnPrintAllClick
+    TabOrder = 1
+  end
+  object gSifat: TGroupBox
+    Left = 8
+    Height = 72
+    Top = 24
+    Width = 240
+    Caption = 'Sifat Ujian'
+    ClientHeight = 54
+    ClientWidth = 236
+    Enabled = False
+    TabOrder = 2
+    OnClick = gSifatClick
+    object btnSimpan: TButton
+      Left = 430
+      Height = 25
+      Top = -72
+      Width = 75
+      Caption = 'Simpan'
+      TabOrder = 0
+    end
+    object eid: TEdit
+      Left = 4
+      Height = 23
+      Top = 17
+      Width = 16
+      TabOrder = 1
+      Text = 'eid'
+      Visible = False
+    end
+    object comSifat: TComboBox
+      Left = 14
+      Height = 23
+      Top = 17
+      Width = 124
+      Color = clGradientInactiveCaption
+      ItemHeight = 15
+      Items.Strings = (
+        'Open Book'
+        'Close Book'
+        'Open Book No Laptop'
+        'Take Home'
+      )
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object btnSimpann: TButton
+      Left = 142
+      Height = 25
+      Top = 16
+      Width = 75
+      Caption = 'Simpan'
+      OnClick = btnSimpannClick
+      TabOrder = 3
+    end
+  end
+  object btnPrint: TButton
+    Left = 632
+    Height = 64
+    Top = 32
+    Width = 76
+    Anchors = [akTop, akRight]
+    Caption = 'Print'
+    OnClick = btnPrintClick
+    TabOrder = 3
+  end
+  object ComboSorter: TComboBox
+    Left = 352
+    Height = 23
+    Top = 58
+    Width = 100
+    ItemHeight = 15
+    Items.Strings = (
+      'Dosen'
+      'Jadwal'
+      'Mata Kuliah'
+    )
+    OnChange = ComboSorterChange
+    Style = csDropDownList
+    TabOrder = 4
+  end
+  object Label1: TLabel
+    Left = 302
+    Height = 16
+    Top = 63
+    Width = 44
+    Caption = 'Sort by :'
+    ParentColor = False
+  end
+  object conn: TODBCConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Params.Strings = (
+      'server=localhost;'
+      'port=3306;'
+      'database=simakad;'
+    )
+    Transaction = SQLTransaction1
+    LogEvents = []
+    left = 440
+    top = 288
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'kd_mk'
+        DataType = ftString
+        Precision = -1
+        Size = 10
+      end    
+      item
+        Name = 'nm_mk'
+        DataType = ftString
+        Precision = -1
+        Size = 100
+      end    
+      item
+        Name = 'jenis'
+        DataType = ftString
+        Precision = -1
+        Size = 3
+      end    
+      item
+        Name = 'th_akdm'
+        DataType = ftString
+        Precision = -1
+        Size = 10
+      end    
+      item
+        Name = 'nama_dosen'
+        DataType = ftWideString
+        Precision = -1
+        Size = 60
+      end    
+      item
+        Name = 'ujian'
+        DataType = ftWideString
+        Precision = -1
+        Size = 6
+      end    
+      item
+        Name = 'tanggal'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'jam'
+        DataType = ftString
+        Precision = -1
+        Size = 4
+      end    
+      item
+        Name = 'tp'
+        DataType = ftWideString
+        Precision = -1
+        Size = 14
+      end    
+      item
+        Name = 'kelas'
+        DataType = ftWideString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'waktu'
+        DataType = ftWideString
+        Precision = -1
+        Size = 6
+      end    
+      item
+        Name = 'smt'
+        DataType = ftWideString
+        Precision = -1
+        Size = 12
+      end    
+      item
+        Name = 'id_soal'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'sifat'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 50
+      end>
+    Database = conn
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    UpdateMode = upWhereChanged
+    left = 528
+    top = 288
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = conn
+    left = 624
+    top = 288
+  end
+  object Datasource1: TDatasource
+    DataSet = SQLQuery1
+    left = 712
+    top = 288
+  end
+  object frReport1: TfrReport
+    Dataset = frDBDataSet1
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 160
+    top = 248
+  end
+  object frDBDataSet1: TfrDBDataSet
+    DataSet = SQLQuery1
+    left = 88
+    top = 248
+  end
+  object SQLUpdate: TSQLQuery
+    FieldDefs = <>
+    Database = conn
+    Transaction = SQLTransaction1
+    Params = <>
+    left = 504
+    top = 392
+  end
+  object SQLPrintSingle: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'kd_mk'
+        DataType = ftString
+        Precision = -1
+        Size = 10
+      end    
+      item
+        Name = 'nm_mk'
+        DataType = ftString
+        Precision = -1
+        Size = 100
+      end    
+      item
+        Name = 'jenis'
+        DataType = ftString
+        Precision = -1
+        Size = 3
+      end    
+      item
+        Name = 'th_akdm'
+        DataType = ftString
+        Precision = -1
+        Size = 10
+      end    
+      item
+        Name = 'nama_dosen'
+        DataType = ftString
+        Precision = -1
+        Size = 30
+      end    
+      item
+        Name = 'ujian'
+        DataType = ftString
+        Precision = -1
+        Size = 3
+      end    
+      item
+        Name = 'tanggal'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'jam'
+        DataType = ftString
+        Precision = -1
+        Size = 4
+      end    
+      item
+        Name = 'tp'
+        DataType = ftString
+        Precision = -1
+        Size = 7
+      end    
+      item
+        Name = 'kelas'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'waktu'
+        DataType = ftString
+        Precision = -1
+        Size = 3
+      end    
+      item
+        Name = 'smt'
+        DataType = ftString
+        Precision = -1
+        Size = 6
+      end    
+      item
+        Name = 'id_soal'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'sifat'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 50
+      end>
+    Database = conn
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select'
+      'tb_jadwal.kd_mk,'
+      'tb_mk.nm_mk,'
+      'tb_jadwal.jenis,'
+      'tb_swu.th_akdm,'
+      'tb_kary.nama as nama_dosen,'
+      'case tb_swu.ujian'
+      '     when ''A'' then ''UAS'''
+      '     when ''T'' then ''UTS'''
+      'end as ujian,'
+      ''
+      'case tb_swu.ujian'
+      '     when ''A'' then tb_jadwal.tgl_uas'
+      '     when ''T'' then tb_jadwal.tgl_uts'
+      'end as tanggal,'
+      ''
+      'case tb_swu.ujian'
+      '     when ''A'' then tb_jadwal.kd_jam_uas'
+      '     when ''T'' then tb_jadwal.kd_jam_uts'
+      'end as jam,'
+      ''
+      ''
+      'case tb_jadwal.jenis'
+      '     when ''T1'' then ''TEORI'''
+      '     when ''T2'' then ''PRAKTEK'''
+      '     when ''P1'' then ''PRAKTEK'''
+      '     when ''P2'' then ''PRAKTEK'''
+      'end as tp,'
+      'substring(tb_jadwal.kelompok,5,1) as kelas,'
+      'case'
+      '    when kd_hari>5 then ''90'''
+      '    else ''100'''
+      'end as waktu,'
+      'case'
+      '    when substring(tb_jadwal.th_akdm,1,1)=1 then ''Ganjil'''
+      '    else ''Genap'''
+      'end as smt,'
+      'tb_soal.id_soal,'
+      'tb_soal.sifat'
+      ''
+      'from'
+      'tb_mk,'
+      'tb_jadwal,'
+      'tb_swu,'
+      'tb_kary,'
+      'tb_soal'
+      'where'
+      'tb_jadwal.th_akdm=tb_swu.th_akdm AND'
+      'tb_jadwal.kd_mk=tb_mk.kd_mk AND'
+      'tb_jadwal.nik=tb_kary.nik AND'
+      'tb_jadwal.id_jadwal=tb_soal.id_jadwal AND'
+      'tb_jadwal.th_akdm=tb_soal.th_akdm AND'
+      'tb_jadwal.kd_mk=tb_soal.kd_mk AND'
+      'tb_jadwal.jenis=tb_soal.jenis'
+      ''
+    )
+    Params = <>
+    UpdateMode = upWhereChanged
+    left = 528
+    top = 216
+  end
+  object frDBDataSet2: TfrDBDataSet
+    DataSet = SQLPrintSingle
+    left = 88
+    top = 168
+  end
+  object frReport2: TfrReport
+    Dataset = frDBDataSet2
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 160
+    top = 168
+  end
+  object SQLGetInfo: TSQLQuery
+    FieldDefs = <>
+    Database = conn
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    left = 324
+    top = 220
+  end
+  object SQLTemp: TSQLQuery
+    FieldDefs = <>
+    Database = conn
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    left = 224
+    top = 320
+  end
+end

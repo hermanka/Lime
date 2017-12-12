@@ -1,0 +1,78 @@
+object frmTRNLM: TfrmTRNLM
+  Left = 572
+  Height = 411
+  Top = 204
+  Width = 499
+  Caption = 'TRNLM (Transaksi Nilai Mahasiswa)'
+  ClientHeight = 411
+  ClientWidth = 499
+  Color = 16708842
+  OnCreate = FormCreate
+  ShowInTaskBar = stNever
+  LCLVersion = '1.0.12.0'
+  object DBGrid1: TDBGrid
+    Left = 14
+    Height = 204
+    Top = 131
+    Width = 474
+    Anchors = [akTop, akLeft, akRight]
+    Color = clWindow
+    Columns = <>
+    DataSource = Datasource1
+    TabOrder = 0
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 28
+    Height = 25
+    Top = 351
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = Datasource1
+    Options = []
+    TabOrder = 1
+  end
+  object eTHS: TEdit
+    Left = 126
+    Height = 23
+    Top = 53
+    Width = 80
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 27
+    Height = 16
+    Top = 55
+    Width = 86
+    Caption = 'Tahun Semester'
+    ParentColor = False
+  end
+  object btnFilter: TButton
+    Left = 216
+    Height = 25
+    Top = 51
+    Width = 75
+    Caption = 'Filter'
+    OnClick = btnFilterClick
+    TabOrder = 3
+  end
+  object Dbf1: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    left = 232
+    top = 184
+  end
+  object Datasource1: TDatasource
+    DataSet = Dbf1
+    left = 104
+    top = 208
+  end
+end

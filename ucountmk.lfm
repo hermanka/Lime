@@ -1,0 +1,181 @@
+object frmHitungMK: TfrmHitungMK
+  Left = 320
+  Height = 297
+  Top = 218
+  Width = 726
+  Caption = 'Hitung MK'
+  ClientHeight = 297
+  ClientWidth = 726
+  OnCreate = FormCreate
+  LCLVersion = '1.6.0.4'
+  object comboProdi: TDBLookupComboBox
+    Left = 104
+    Height = 23
+    Top = 64
+    Width = 56
+    ListFieldIndex = 0
+    LookupCache = False
+    OnChange = comboProdiChange
+    TabOrder = 0
+  end
+  object ComboKur: TDBLookupComboBox
+    Left = 256
+    Height = 23
+    Top = 64
+    Width = 52
+    ListFieldIndex = 0
+    LookupCache = False
+    OnChange = ComboKurChange
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Left = 24
+    Height = 15
+    Top = 68
+    Width = 67
+    Caption = 'Pilih Progdi :'
+    ParentColor = False
+  end
+  object comboMK: TDBLookupComboBox
+    Left = 408
+    Height = 23
+    Top = 64
+    Width = 232
+    ListFieldIndex = 0
+    LookupCache = False
+    TabOrder = 2
+  end
+  object Label2: TLabel
+    Left = 184
+    Height = 15
+    Top = 68
+    Width = 61
+    Caption = 'Kurikulum :'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 325
+    Height = 15
+    Top = 68
+    Width = 69
+    Caption = 'Mata Kuliah :'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 24
+    Height = 15
+    Top = 16
+    Width = 354
+    Caption = 'Menghitung Mahasiswa yang tidak mengambil mata kuliah terpilih'
+    ParentColor = False
+  end
+  object btnGo: TButton
+    Left = 656
+    Height = 25
+    Top = 62
+    Width = 48
+    Caption = 'Go'
+    OnClick = btnGoClick
+    TabOrder = 3
+  end
+  object Label5: TLabel
+    Left = 37
+    Height = 15
+    Top = 226
+    Width = 34
+    Caption = 'Label5'
+    ParentColor = False
+  end
+  object conn: TODBCConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Options = []
+    left = 616
+  end
+  object Q1: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 495
+    top = 152
+  end
+  object Trans1: TSQLTransaction
+    Active = False
+    Options = []
+    left = 623
+    top = 216
+  end
+  object Source1: TDataSource
+    left = 492
+    top = 232
+  end
+  object Q2: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 543
+    top = 152
+  end
+  object Source2: TDataSource
+    left = 447
+    top = 232
+  end
+  object Trans2: TSQLTransaction
+    Active = False
+    Options = []
+    left = 567
+    top = 216
+  end
+  object Q3: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 600
+    top = 162
+  end
+  object Trans3: TSQLTransaction
+    Active = False
+    Options = []
+    left = 664
+    top = 230
+  end
+  object Source3: TDataSource
+    left = 408
+    top = 235
+  end
+  object Qcount: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 168
+    top = 216
+  end
+  object TransCount: TSQLTransaction
+    Active = False
+    Options = []
+    left = 223
+    top = 217
+  end
+  object SourceCount: TDataSource
+    left = 287
+    top = 223
+  end
+  object SourceCek: TDataSource
+    left = 267
+    top = 139
+  end
+  object TransCek: TSQLTransaction
+    Active = False
+    Options = []
+    left = 217
+    top = 143
+  end
+  object QCek: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 148
+    top = 153
+  end
+end

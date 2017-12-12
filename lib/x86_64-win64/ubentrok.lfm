@@ -1,0 +1,132 @@
+object frmBentrok: TfrmBentrok
+  Left = 389
+  Height = 340
+  Top = 197
+  Width = 572
+  BorderStyle = bsDialog
+  Caption = 'Bentrok Finder'
+  ClientHeight = 340
+  ClientWidth = 572
+  Color = 16708842
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.0.14.0'
+  object eIDJadwal: TEdit
+    Left = 44
+    Height = 23
+    Top = 20
+    Width = 40
+    TabOrder = 0
+  end
+  object btnCekBentrok: TButton
+    Left = 88
+    Height = 28
+    Top = 17
+    Width = 75
+    Caption = 'Cek MK'
+    OnClick = btnCekBentrokClick
+    TabOrder = 1
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 260
+    Top = 80
+    Width = 571
+    Color = clWindow
+    Columns = <>
+    ReadOnly = True
+    Scrollbars = ssAutoVertical
+    TabOrder = 2
+    Visible = False
+  end
+  object Label1: TLabel
+    Left = 24
+    Height = 24
+    Top = 19
+    Width = 15
+    Caption = 'ID'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -19
+    Font.Name = 'Arial Narrow'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object btnCekJadwalUjian: TButton
+    Left = 407
+    Height = 48
+    Top = 8
+    Width = 155
+    Caption = 'Cek Jadwal Ujian Bentrok'
+    OnClick = btnCekJadwalUjianClick
+    TabOrder = 3
+  end
+  object ProgressBar1: TProgressBar
+    Left = 10
+    Height = 10
+    Top = 61
+    Width = 552
+    TabOrder = 4
+    Visible = False
+  end
+  object conn: TODBCConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    LogEvents = []
+    left = 256
+    top = 88
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    left = 432
+    top = 88
+  end
+  object Datasource1: TDatasource
+    left = 200
+    top = 88
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Params = <>
+    left = 352
+    top = 88
+  end
+  object SQLGetInfo: TSQLQuery
+    FieldDefs = <>
+    Database = conn
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    left = 296
+    top = 192
+  end
+  object SQLtmp: TSQLQuery
+    FieldDefs = <>
+    Database = conn
+    Transaction = SQLTransaction1
+    Params = <>
+    left = 408
+    top = 192
+  end
+  object SQLtmp2: TSQLQuery
+    FieldDefs = <>
+    Database = conn
+    Transaction = SQLTransaction1
+    Params = <>
+    left = 232
+    top = 192
+  end
+  object SQLtmpJad: TSQLQuery
+    FieldDefs = <>
+    Database = conn
+    Transaction = SQLTransaction1
+    Params = <>
+    left = 96
+    top = 216
+  end
+end

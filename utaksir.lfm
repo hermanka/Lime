@@ -1,0 +1,197 @@
+object frmTaksir: TfrmTaksir
+  Left = 279
+  Height = 390
+  Top = 106
+  Width = 996
+  Caption = 'frmTaksir'
+  ClientHeight = 390
+  ClientWidth = 996
+  OnCreate = FormCreate
+  LCLVersion = '1.6.0.4'
+  object comboAKDM: TDBLookupComboBox
+    Left = 176
+    Height = 23
+    Top = 24
+    Width = 152
+    KeyField = 'th_akdm'
+    ListField = 'ket_th_akdm'
+    ListFieldIndex = 0
+    ListSource = SourceAKDM
+    LookupCache = False
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 17
+    Height = 15
+    Top = 28
+    Width = 143
+    Caption = 'Tahun Akademik Kemarin :'
+    ParentColor = False
+  end
+  object btnGo: TButton
+    Left = 344
+    Height = 25
+    Top = 22
+    Width = 75
+    Caption = 'Go'
+    OnClick = btnGoClick
+    TabOrder = 1
+  end
+  object Grid1: TDBGrid
+    Left = 16
+    Height = 288
+    Top = 88
+    Width = 464
+    Color = clWindow
+    Columns = <>
+    TabOrder = 2
+  end
+  object lblCount: TLabel
+    Left = 576
+    Height = 30
+    Top = 17
+    Width = 78
+    Alignment = taRightJustify
+    BidiMode = bdRightToLeft
+    Caption = 'lblCount'
+    Font.Height = -21
+    ParentBidiMode = False
+    ParentColor = False
+    ParentFont = False
+  end
+  object ProgressBar1: TProgressBar
+    Left = 17
+    Height = 10
+    Top = 66
+    Width = 639
+    TabOrder = 3
+  end
+  object grid2: TDBGrid
+    Left = 544
+    Height = 289
+    Top = 87
+    Width = 434
+    Color = clWindow
+    Columns = <>
+    TabOrder = 4
+  end
+  object btnInc: TButton
+    Left = 487
+    Height = 33
+    Top = 96
+    Width = 51
+    Caption = '>>'
+    OnClick = btnIncClick
+    TabOrder = 5
+  end
+  object btnIterate: TButton
+    Left = 424
+    Height = 25
+    Top = 22
+    Width = 75
+    Caption = 'Iterate'
+    OnClick = btnIterateClick
+    TabOrder = 6
+  end
+  object conn: TODBCConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = Trans1
+    LogEvents = []
+    Options = []
+    left = 240
+    top = 264
+  end
+  object Trans1: TSQLTransaction
+    Active = False
+    Database = conn
+    Options = []
+    left = 216
+    top = 158
+  end
+  object Qakdm: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 336
+    top = 264
+  end
+  object Source: TDataSource
+    left = 288
+    top = 264
+  end
+  object SourceAKDM: TDataSource
+    left = 168
+    top = 264
+  end
+  object Q1: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 168
+    top = 158
+  end
+  object Q2: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 128
+    top = 158
+  end
+  object Source2: TDataSource
+    left = 392
+    top = 176
+  end
+  object Qjdw: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 120
+    top = 264
+  end
+  object QCount: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 72
+    top = 264
+  end
+  object QNilai: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 83
+    top = 158
+  end
+  object Qinsert: TSQLQuery
+    FieldDefs = <>
+    Database = conn
+    Transaction = Trans1
+    SQL.Strings = (
+      ''
+    )
+    Options = []
+    Params = <>
+    left = 360
+    top = 104
+  end
+  object SourceInc: TDataSource
+    left = 672
+    top = 144
+  end
+  object Qinc: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 616
+    top = 144
+  end
+  object Qupdate: TSQLQuery
+    FieldDefs = <>
+    Options = []
+    Params = <>
+    left = 644
+    top = 207
+  end
+end

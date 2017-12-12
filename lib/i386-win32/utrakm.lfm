@@ -1,0 +1,160 @@
+object frmTRAKM: TfrmTRAKM
+  Left = 340
+  Height = 328
+  Top = 178
+  Width = 806
+  Caption = 'TRAKM ( Transaksi Akademik Mahasiswa)'
+  ClientHeight = 328
+  ClientWidth = 806
+  Color = 16708842
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.0.12.0'
+  object DBGrid1: TDBGrid
+    Left = 311
+    Height = 262
+    Top = 16
+    Width = 477
+    Anchors = [akTop, akLeft, akRight]
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Semester'
+        FieldName = 'THSMSTRAKM'
+      end    
+      item
+        Title.Caption = 'NIM'
+        Width = 100
+        FieldName = 'NIMHSTRAKM'
+      end    
+      item
+        Title.Caption = 'SKS'
+        Width = 50
+        FieldName = 'SKSEMTRAKM'
+      end    
+      item
+        Title.Caption = 'TOTAL SKS'
+        FieldName = 'SKSTTTRAKM'
+      end    
+      item
+        Title.Caption = 'IPS'
+        Width = 50
+        FieldName = 'NLIPSTRAKM'
+      end    
+      item
+        Title.Caption = 'IPK'
+        Width = 50
+        FieldName = 'NLIPKTRAKM'
+      end>
+    DataSource = Datasource1
+    TabOrder = 0
+  end
+  object eTHS: TEdit
+    Left = 408
+    Height = 23
+    Top = 290
+    Width = 59
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Left = 311
+    Height = 16
+    Top = 295
+    Width = 86
+    Caption = 'Tahun Semester'
+    ParentColor = False
+  end
+  object btnFilter: TButton
+    Left = 477
+    Height = 25
+    Top = 288
+    Width = 59
+    Caption = 'Filter'
+    OnClick = btnFilterClick
+    TabOrder = 2
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 547
+    Height = 25
+    Top = 288
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = Datasource1
+    Options = []
+    TabOrder = 3
+  end
+  object eNIM: TEdit
+    Left = 24
+    Height = 23
+    Top = 16
+    Width = 80
+    TabOrder = 4
+  end
+  object btnSave: TButton
+    Left = 120
+    Height = 25
+    Top = 16
+    Width = 75
+    Caption = 'Save'
+    OnClick = btnSaveClick
+    TabOrder = 5
+  end
+  object btnUbah: TButton
+    Left = 120
+    Height = 25
+    Top = 56
+    Width = 75
+    Caption = 'Ubah'
+    OnClick = btnUbahClick
+    TabOrder = 6
+  end
+  object eUbah: TEdit
+    Left = 24
+    Height = 23
+    Top = 56
+    Width = 80
+    TabOrder = 7
+    Text = 'eUbah'
+  end
+  object DBEdit1: TDBEdit
+    Left = 24
+    Height = 23
+    Top = 96
+    Width = 80
+    DataSource = Datasource1
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 8
+  end
+  object Button1: TButton
+    Left = 120
+    Height = 25
+    Top = 96
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 9
+  end
+  object Dbf1: TDbf
+    IndexDefs = <>
+    TableName = 'TRAKM.DBF'
+    TableLevel = 3
+    FilterOptions = []
+    left = 608
+    top = 112
+  end
+  object Datasource1: TDatasource
+    DataSet = Dbf1
+    left = 552
+    top = 112
+  end
+end

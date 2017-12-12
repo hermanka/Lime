@@ -1,0 +1,68 @@
+object frmSplash: TfrmSplash
+  Left = 482
+  Height = 46
+  Top = 367
+  Width = 253
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsToolWindow
+  Caption = 'Login'
+  ClientHeight = 46
+  ClientWidth = 253
+  Color = clGradientInactiveCaption
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.0.12.0'
+  object eUser: TEdit
+    Left = 0
+    Height = 23
+    Top = 0
+    Width = 200
+    Anchors = [akTop]
+    OnClick = eUserClick
+    TabOrder = 0
+    Text = 'Username'
+  end
+  object ePass: TEdit
+    Left = 0
+    Height = 23
+    Top = 23
+    Width = 200
+    Anchors = [akTop]
+    EchoMode = emPassword
+    OnClick = ePassClick
+    OnEditingDone = btnLoginClick
+    PasswordChar = '*'
+    TabOrder = 1
+    Text = 'Password'
+  end
+  object btnLogin: TButton
+    Left = 199
+    Height = 48
+    Top = -1
+    Width = 56
+    Caption = 'Login'
+    OnClick = btnLoginClick
+    TabOrder = 2
+  end
+  object conn: TODBCConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    LogEvents = []
+    left = 64
+    top = 80
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    left = 184
+    top = 80
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Params = <>
+    left = 128
+    top = 80
+  end
+end

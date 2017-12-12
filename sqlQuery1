@@ -1,0 +1,4 @@
+select tb_ujian_hnr_jaga.*, tb_kary.nama, tb_jam_ujian.jam_awal as jam_jaga
+from tb_ujian_hnr_jaga,tb_kary,tb_jam_ujian
+where tb_ujian_hnr_jaga.nik=tb_kary.niK and
+tb_ujian_hnr_jaga.jam=tb_jam_ujian.kd_jam_ujian

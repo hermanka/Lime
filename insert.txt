@@ -1,0 +1,3 @@
+Dbf9.Edit;
+ Dbf9.FieldByName('fNOPTF').AsInteger:= NEWPLATE;
+ Dbf9.Post;
